@@ -1,0 +1,18 @@
+.swpCss{
+  /* swiper和图片高度一样高750px */
+  width: 750rpx;
+  height: 340rpx;
+}
+.swpCss image{
+  width: 100%;
+}
+.index_navi{
+  display: flex;
+}
+.index_navi navigator{
+  flex: 1;
+  padding: 20rpx;
+}
+.index_navi navigator image{
+  width: 100%;
+}

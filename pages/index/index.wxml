@@ -1,4 +1,20 @@
 <view>
 <SearchInput></SearchInput>
+<view class="index_swp">
+  <!-- swiper 默认高度宽度 150px*100%  img默认 宽度高度  320px*240px -->
+  <swiper class="swpCss" autoplay indicator-dots circular indicator-color="rgba(255,255,255,0.3)" indicator-active-color="#fff">
+    <swiper-item wx:for="{{swiperList}}" wx:key="goods_id">
+      <navigator url="{{item.navigator_url}}" open-type="{{item.open_type}}">
+        <!-- mode widthFix :缩放模式，宽度不变，高度自动变化，保持原图宽高比不变 -->
+        <image mode="widthFix" src="{{item.image_src}}"></image>
+      </navigator>
+    </swiper-item>
+  </swiper>
+</view>
+<view class="index_navi">
+  <navigator wx:for="{{naviList}}" wx:key="name">
+    <image src="{{item.image_src}}" mode="widthFix"></image>
+  </navigator>
+</view>
 </view>
 

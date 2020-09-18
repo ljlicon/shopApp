@@ -16,3 +16,30 @@
 .index_navi navigator image{
   width: 100%;
 }
+.index_floor .index_title image{
+  margin: 10rpx 0px;
+  width: 100%;
+}
+.index_product {
+  overflow: hidden;
+}
+.index_product navigator{
+  width: 33.33%;
+  float: left;
+  /* height: 38600vw/694; */
+}
+/* 后四张是的高度是第一张的一半，整个宽度是视口的1/3
+第一张的宽高是232x386 他占视口的 width 1/3
+232/386=100vw/3/2height
+*/
+.index_product navigator:nth-last-child(-n+4){
+  height: 27.80979827089337vw;
+  padding-left: 10rpx;
+}
+.index_product navigator:nth-child(2),.index_product navigator:nth-child(3){
+  padding-bottom: 10rpx;
+}
+.index_product navigator image{
+  width: 100%;
+  height: 100%;
+}

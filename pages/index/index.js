@@ -7,6 +7,7 @@ Page({
   data: {
     swiperList:[],
     naviList:[],
+    floorList:[],
   },
 
   /**
@@ -25,6 +26,7 @@ Page({
     // })
     this.getSwpList()
     this.getNaviList()
+    this.getFloorList()
   },
   //获取轮播图数据
   getSwpList(){
@@ -44,6 +46,18 @@ Page({
       if(res.meta.status==200){
         this.setData({
           naviList:res.message
+        });
+      }else{
+        console.log(res.meta.msg);
+      }
+    })
+  },
+  //获取导航栏数据
+  getFloorList(){
+    axios({url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/floordata'}).then(res=>{
+      if(res.meta.status==200){
+        this.setData({
+          floorList:res.message
         });
       }else{
         console.log(res.meta.msg);

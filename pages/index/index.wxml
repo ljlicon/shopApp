@@ -17,7 +17,7 @@
       <image src="{{item.image_src}}" mode="widthFix"></image>
     </navigator>
   </view>
-  <view class="index_floor" wx:for="{{floorList}}" wx:key="floor_title.name" wx:for-item="floor1" wx:for-index="index1">
+  <view class="index_floor" wx:for="{{floorList}}" wx:key="name" wx:for-item="floor1" wx:for-index="index1">
     <view class="index_title">
       <image mode="widthFix" src="{{floor1.floor_title.image_src}}"></image>
     </view>

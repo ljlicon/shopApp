@@ -1,3 +1,4 @@
+import { axios } from "../../request/index.js"
 // pages/category/index.js
 Page({
 
@@ -5,13 +6,56 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    leftName: [],//左侧名字列表
+    rightData: [],//右侧数据
+    currentIndex: 0,//索引
+    scrollTop: 0,
   },
+  Cates: [],
+
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // 本地存储数据缓存  目标格式{time:Date.now(),data:this.Cates}
+    const cates = wx.getStorageSync('cates')
+    if (!cates) {
+      this.getCates()
+    } else {
+      if (Date.now() - cates.time > 1000 * 10) {
+        this.getCates()
+      } else {
+        console.log("可以使用旧数据")
+        this.Cates = cates.data
+        let leftName = this.Cates.map(v => v.cat_name)
+        let rightData = this.Cates[this.data.currentIndex].children
+        this.setData({
+          leftName, rightData
+        })
+      }
+    }
+
+  },
+  async getCates() {
+    const res = await axios({ url: "/categories" })
+    this.Cates = res.message
+    wx.setStorageSync('cates', { time: Date.now(), data: this.Cates })
+    let leftName = this.Cates.map(v => v.cat_name)
+    let rightData = this.Cates[this.data.currentIndex].children
+    this.setData({
+      leftName, rightData
+    })
+  },
+  // 标题点击事件
+  handleTag(e) {
+    const { item } = e.currentTarget.dataset
+    let rightData = this.Cates[item].children
+    this.setData({
+      currentIndex: item,
+      rightData,
+      scrollTop: 0,
+    })
 
   },
 

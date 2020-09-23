@@ -16,7 +16,7 @@ Page({
   onLoad: function (options) {
     // 优化异步请求的promise封装
     // wx.request({
-    //   url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata',
+    //   url: '/home/swiperdata',
     //   success: (res) => {
     //     console.log(res);
     //     this.setData({
@@ -30,7 +30,7 @@ Page({
   },
   //获取轮播图数据
   getSwpList(){
-    axios({url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata'}).then(res=>{
+    axios({url: '/home/swiperdata'}).then(res=>{
       if(res.meta.status==200){
         this.setData({
           swiperList:res.message
@@ -42,7 +42,7 @@ Page({
   },
   //获取导航栏数据
   getNaviList(){
-    axios({url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/catitems'}).then(res=>{
+    axios({url: '/home/catitems'}).then(res=>{
       if(res.meta.status==200){
         this.setData({
           naviList:res.message
@@ -54,7 +54,7 @@ Page({
   },
   //获取导航栏数据
   getFloorList(){
-    axios({url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/floordata'}).then(res=>{
+    axios({url: '/home/floordata'}).then(res=>{
       if(res.meta.status==200){
         this.setData({
           floorList:res.message

@@ -1,4 +1,11 @@
 <view class="goods_list">
   <SearchInput></SearchInput>
-  <Tabs tabs="{{tabs}}" ></Tabs>
+  <Tabs tabs="{{tabs}}" bindtabsChange="handleTabsChange">
+    <block wx:if="{{currentNum==0}}">
+      
+      
+    </block>
+    <block wx:elif="{{currentNum==1}}">1</block>
+    <block wx:else>2</block>
+  </Tabs>
 </view>

@@ -1,4 +1,6 @@
 // pages/goods_list/index.js
+import {axios} from "../../request/index.js"
+
 Page({
 
   /**
@@ -18,14 +20,31 @@ Page({
       id:0,
       value:'价格',
       isActive:false,
-    }]
+    }],
+    currentNum:0,
+    pagenum:1,//页码
+    pagesize:10,//页容量
+    goodsList:[],//商品列表数据
   },
-
+  // 子组件传递过来的方法
+  handleTabsChange(e){
+    const {item}=e.detail
+    this.setData({
+      currentNum:item
+    })
+  },
+  async getGoodsList(val){
+    const res= await axios({url:'/goods/search',cid:val,pagesize:this.data.pagesize,pagenum:this.data.pagenum})
+    this.setData({
+      goodsList:res.message.goods
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    console.log(options.cid)
+    this.getGoodsList(options.cid)
   },
 
   /**

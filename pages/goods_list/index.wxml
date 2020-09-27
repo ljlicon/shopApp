@@ -2,10 +2,54 @@
   <SearchInput></SearchInput>
   <Tabs tabs="{{tabs}}" bindtabsChange="handleTabsChange">
     <block wx:if="{{currentNum==0}}">
-      
-      
+      <view class="list_item" wx:for="{{goodsList}}" wx:key="goods_id">
+        <navigator class="item_navi" url="/pages/goods_detail/index?goods_id={{item.goods_id}}">
+          <view class="item_pic">
+            <image  mode="widthFix" src="{{item.goods_small_logo?item.goods_small_logo:'http://image2.suning.cn/uimg/b2c/newcatentries/0070078057-000000000634917020_1_800x800.jpg'}}"></image>
+          </view>
+          <view class="item_content">
+            <view class="content_discrib">
+              {{item.goods_name}}
+            </view>
+            <view class="content_price">
+              ￥{{item.goods_price}}
+            </view>
+          </view>
+        </navigator>
+      </view>
     </block>
-    <block wx:elif="{{currentNum==1}}">1</block>
-    <block wx:else>2</block>
+    <block wx:elif="{{currentNum==1}}"><view class="list_item" wx:for="{{goodsList}}" wx:key="goods_id">
+        <navigator class="item_navi" url="/pages/goods_detail/index?goods_id={{item.goods_id}}">
+          <view class="item_pic">
+            <image  mode="widthFix" src="{{item.goods_small_logo?item.goods_small_logo:'http://image2.suning.cn/uimg/b2c/newcatentries/0070078057-000000000634917020_1_800x800.jpg'}}"></image>
+          </view>
+          <view class="item_content">
+            <view class="content_discrib">
+              {{item.goods_name}}
+            </view>
+            <view class="content_price">
+              ￥{{item.goods_price}}
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="list_item" wx:for="{{goodsList}}" wx:key="goods_id">
+        <navigator class="item_navi" url="/pages/goods_detail/index?goods_id={{item.goods_id}}">
+          <view class="item_pic">
+            <image  mode="widthFix" src="{{item.goods_small_logo?item.goods_small_logo:'http://image2.suning.cn/uimg/b2c/newcatentries/0070078057-000000000634917020_1_800x800.jpg'}}"></image>
+          </view>
+          <view class="item_content">
+            <view class="content_discrib">
+              {{item.goods_name}}
+            </view>
+            <view class="content_price">
+              ￥{{item.goods_price}}
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </block>
   </Tabs>
 </view>

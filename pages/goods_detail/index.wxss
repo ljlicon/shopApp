@@ -1,1 +1,75 @@
-/* pages/goods_detail/index.wxss */
+.swpCss{
+  /* swiper和图片高度一样高750px */
+  height: 60vw;
+  text-align: center;
+}
+.swpCss image{
+  width: 60%;
+}
+.detail_price{
+  color: var(--themeColor);
+  font-size: 30rpx;
+  font-weight: 600;
+  padding:10rpx 20rpx;
+}
+.detail_title{
+  display: flex;
+  padding-bottom: 15rpx;
+  border-bottom: 8rpx solid #ddd;
+}
+.detail_title .detail_name{
+  flex: 8;
+  padding-right: 15rpx;
+  padding-left: 10rpx;
+  border-right: 1px solid #666;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.detail_title .detail_collect{
+  flex: 2;
+  text-align: center;
+}
+.detail_pic{
+  color: var(--themeColor);
+  font-size: 30rpx;
+  font-weight: 600;
+  padding:10rpx 20rpx;
+}
+.tool_box{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  height: 90rpx;
+  display: flex;
+}
+.tool_item{
+  text-align: center;
+  flex: 2;
+  font-size: 26rpx;
+  padding-top: 10rpx;
+}
+.tool_item_add{
+  flex: 3;
+  text-align: center;
+  line-height: 90rpx;
+  background-color: orange;
+  font-size: 32rpx;
+  color: #fff;
+  font-weight: 500;
+}
+.tool_item_buy{
+  flex: 3;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  line-height: 90rpx;
+  background-color: var(--themeColor);
+  font-size: 32rpx;
+  color: #fff;
+  font-weight: 500;
+}

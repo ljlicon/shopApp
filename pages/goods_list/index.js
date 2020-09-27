@@ -22,77 +22,70 @@ Page({
       isActive:false,
     }],
     currentNum:0,
-    pagenum:1,//页码
-    pagesize:10,//页容量
+    
     goodsList:[],//商品列表数据
   },
+  queryData:{
+    query:'',
+    cid:'',
+    pagesize:10,
+    pagenum:1,
+  },
+  totalNum:0,
   // 子组件传递过来的方法
   handleTabsChange(e){
     const {item}=e.detail
     this.setData({
-      currentNum:item
+      currentNum:item,
+      goodsList:[]
     })
+    this.queryData.pagenum=1
+    this.getGoodsList()
   },
-  async getGoodsList(val){
-    const res= await axios({url:'/goods/search',cid:val,pagesize:this.data.pagesize,pagenum:this.data.pagenum})
+  
+  async getGoodsList(){
+    const res= await axios({url:'/goods/search',data:this.queryData})
+    this.totalNum=res.message.total
     this.setData({
-      goodsList:res.message.goods
+      goodsList:[...this.data.goodsList,...res.message.goods]
     })
+    wx.stopPullDownRefresh()
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.cid)
-    this.getGoodsList(options.cid)
+    this.queryData.cid=options.cid
+    this.getGoodsList()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
+  
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    console.log('下拉了')
+    this.setData({
+      goodsList:[]
+    })
+    this.queryData.pagenum=1
+    this.getGoodsList()
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    console.log('触底了')
+    this.queryData.pagenum++
+    console.log(this.queryData.pagenum)
+    if(Math.ceil(this.totalNum/10)>=this.queryData.pagenum){
+      this.getGoodsList()
+    }else{
+      wx.showToast({
+        title: '没有更多了',
+      })
+    }
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+  
 })

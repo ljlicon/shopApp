@@ -1,2 +1,3 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<view class="user_address">
+  <button bindtap="handleGetAdress" type="primary" size="default" plain>获取地址</button>
+</view>

@@ -3,7 +3,7 @@
   height: 90rpx;
   padding: 10rpx;
 }
-.search_input navigator{
+.search_input .seach_nav{
   height: 100%;
   display: flex;
   justify-content: center;

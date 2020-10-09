@@ -3,7 +3,7 @@
   <view class="category_container">
     <scroll-view scroll-y class="category_left">
       <view bindtap="handleTag" data-item="{{index}}" class="cate_name {{currentIndex==index? 'active':''}}"
-        wx:for="{{leftName}}">{{item}}</view>
+        wx:for="{{leftName}}" wx:key="index">{{item}}</view>
     </scroll-view>
     <scroll-view scroll-y class="category_right" scroll-top="{{scrollTop}}">
       <view class="right_item" wx:for="{{rightData}}" wx:for-item="item1" wx:for-index="item1.cat_id" wx:key="cat_id">
@@ -12,13 +12,12 @@
         </view>
         <view class="right_content">
           <navigator class="nav_pic" wx:for="{{item1.children}}" wx:for-item="item2" wx:for-index="item2.cat_id"
-            wx:key="item2.cat_id" url="/pages/goods_list/index?cid={{item2.cat_id}}">
+            wx:key="cat_id" url="/pages/goods_list/index?cid={{item2.cat_id}}">
             <image mode="widthFix" src="{{item2.cat_icon}}"></image>
             <view>{{item2.cat_name}}</view>
           </navigator>
         </view>
       </view>
-
     </scroll-view>
   </view>
 </view>

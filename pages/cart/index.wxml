@@ -1,3 +1,8 @@
 <view class="user_address">
-  <button bindtap="handleGetAdress" type="primary" size="default" plain>获取地址</button>
+  <button bindtap="handleGetAdress" type="default" size="default" plain wx:if="{{!address.userName}}">+添加收获地址</button>
+  <view wx:else>
+    <view class="address_name">收货人：{{address.userName}} <text >{{address.telNumber}}</text> </view>
+    <view class="address_box">{{address.provinceName}}{{address.cityName}}{{address.countyName}}{{address.detailInfo}} </view>
+  </view>
 </view>
+<view class="car_title">购物车</view>

@@ -9,7 +9,10 @@ Page({
    */
   data: {
     address:{},
-    carts:[]
+    carts:[],
+    checkedAll:false,
+    totalPrice:0,
+    totalNum:0,
   },
 
   /**
@@ -23,13 +26,16 @@ Page({
    */
   onShow: function () {
     const address = wx.getStorageSync('address');
-    const carts = wx.getStorageSync('carts');
-
+    const carts = wx.getStorageSync('carts')||[];
+    // 为了减少一个循环把这个判断写在foreach里
+    // const checkedAll = carts.length?carts.every(v=>v.check):false
     this.setData({
       address,
-      carts
     })
+    this.setCart(carts)
+    
   },
+  //获取收获地址
   async handleGetAdress() {
     //获取权限状态  看下是不是true 是的话就调用地址的方法不是就打开设置
     const res = await getSetting();
@@ -66,4 +72,40 @@ Page({
     // })
 
   },
+  //点击选中事件
+  handleCheck(e){
+    const goods_id=e.currentTarget.dataset.id
+    //找到对应的商品，改变缓存中和页面上data的数据和页面的状态
+    const {carts}=this.data
+    let index= carts.findIndex(v=>v.goods_id===goods_id)
+    // 改变对应数据的状态
+    carts[index].check=!carts[index].check
+    this.setData({
+      carts,
+    })
+    wx.setStorageSync('carts', carts)
+    this.setCart(carts)
+  },
+  //获取商品选中状态并且计算价格和数量
+  setCart(carts){
+    let checkedAll=true;
+    let totalPrice=0;
+    let totalNum=0;
+    carts.forEach(item => {
+      if(item.check){
+        totalPrice += item.num*item.goods_price
+        totalNum += item.num
+      }else{
+        checkedAll=false
+      }
+    });
+    //判断是否为空
+    checkedAll= carts.length!=0? checkedAll:false
+    this.setData({
+      carts,
+      checkedAll,
+      totalPrice,
+      totalNum
+    })
+  }
 })

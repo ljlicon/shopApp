@@ -11,17 +11,16 @@
 <view class="car_content">
   <view class="car_title">购物车</view>
   <view class="car_main">
-
     <view class="car_item" wx:for="{{carts}}" wx:key="goods_id" >
       <view class="car_check">
-        <checkbox-group>
-          <checkbox>
+        <checkbox-group data-id="{{item.goods_id}}" bindchange="handleCheck">
+          <checkbox  checked="item.check" >
           </checkbox>
         </checkbox-group>
       </view>
       <view class="car_img">
         <navigator navigateTo="#">
-          <image mode="widthFix" src="{{item.goods_small_logo}}">
+          <image mode="widthFix" src="{{item.goods_small_logo?item.goods_small_logo:'http://image2.suning.cn/uimg/b2c/newcatentries/0070078057-000000000634917020_1_800x800.jpg'}}">
           </image>
         </navigator>
       </view>
@@ -39,7 +38,6 @@
         </view>
       </view>
     </view>
-
   </view>
 </view>
 
@@ -47,16 +45,16 @@
 <view class="account">
   <view class="account_allcheck">
     <checkbox-group>
-      <checkbox></checkbox>
+      <checkbox checked="{{checkedAll}}"></checkbox>
       全选
     </checkbox-group>
 
   </view>
   <view class="account_price">
-    <view class="account_price_num">合计：<text>￥888888</text></view>
+    <view class="account_price_num">合计：<text>￥{{totalPrice}}</text></view>
     <view class="account_price_text">包含运费</view>
   </view>
   <view class="account_text">
-    <text>结算(2)</text>
+    <text>结算({{totalNum}})</text>
   </view>
 </view>

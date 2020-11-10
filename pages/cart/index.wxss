@@ -6,6 +6,9 @@
 .address_name text{
   float: right;
 }
+.car_content{
+  padding-bottom: 90rpx;
+}
 .car_title{
   font-size: 38rpx;
   padding: 30rpx 20rpx;

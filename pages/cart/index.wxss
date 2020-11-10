@@ -12,3 +12,114 @@
   border-bottom: 2px solid var(--themeColor);
   border-top: 2px solid var(--themeColor);
 } 
+.car_item{
+  display: flex;
+  padding: 20rpx;
+  border-bottom: 1px solid #999;
+  
+}
+.car_check{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.car_img{
+  flex: 3;
+  margin: 0px 10rpx;
+  
+}
+.car_img navigator{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.car_img image{
+  width: 80%;
+}
+.car_info{
+  flex: 6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.car_info .goods_name{
+  font-size: 32rpx;
+  color: #666;
+  font-weight: 500;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.goods_price_num{
+  display: flex;
+  justify-content: space-between;
+}
+.goods_price{
+  flex: 1;
+  font-size: 30rpx;
+  color: var(--themeColor);
+}
+.goods_num{
+  flex: 1;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.goods_num_s{
+  width: 50rpx;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.goods_num_add{
+  border: 1px solid #ccc;
+  width: 50rpx;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.account{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  height: 90rpx;
+  display: flex;
+  border-top: 1px solid #ccc;
+}
+.account_allcheck{
+  flex: 2;
+  line-height: 90rpx;
+  padding-left: 15rpx;
+}
+.account_price{
+  flex: 4;
+  text-align: right;
+  padding-right: 15rpx;
+}
+.account_price_num{
+  font-size: 32rpx;
+}
+.account_price_num text{
+  color: var(--themeColor);
+}
+.account_price_text{
+  color: #666;
+}
+.account_text{
+  flex: 2;
+  line-height: 90rpx;
+  background-color: var(--themeColor);
+  text-align: center;
+}
+.account_text{
+  font-size: 30rpx;
+  color: #fff;
+}

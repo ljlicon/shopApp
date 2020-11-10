@@ -8,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    address:{}
+    address:{},
+    carts:[]
   },
 
   /**
@@ -22,8 +23,11 @@ Page({
    */
   onShow: function () {
     const address = wx.getStorageSync('address');
+    const carts = wx.getStorageSync('carts');
+
     this.setData({
-      address
+      address,
+      carts
     })
   },
   async handleGetAdress() {

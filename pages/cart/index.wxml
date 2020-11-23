@@ -44,7 +44,7 @@
 <!-- 结算区域 -->
 <view class="account">
   <view class="account_allcheck">
-    <checkbox-group>
+    <checkbox-group bindchange="handleClickAll">
       <checkbox checked="{{checkedAll}}"></checkbox>
       全选
     </checkbox-group>

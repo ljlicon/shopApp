@@ -83,7 +83,7 @@ Page({
     this.setData({
       carts,
     })
-    wx.setStorageSync('carts', carts)
+    
     this.setCart(carts)
   },
   //获取商品选中状态并且计算价格和数量
@@ -107,12 +107,12 @@ Page({
       totalPrice,
       totalNum
     })
+    wx.setStorageSync('carts', carts)
   },
   //全选与反选事件
   handleClickAll(){
     //获取data中的数据
     let {carts,checkedAll}=this.data
-    console.log(checkedAll);
     //改变全选按钮的状态
     checkedAll = !checkedAll
     //改变每一项里面的状态 让他和全选同步

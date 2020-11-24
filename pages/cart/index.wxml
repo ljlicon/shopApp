@@ -14,7 +14,7 @@
     <view class="car_item" wx:for="{{carts}}" wx:key="goods_id" >
       <view class="car_check">
         <checkbox-group data-id="{{item.goods_id}}" bindchange="handleCheck">
-          <checkbox  checked="item.check" >
+          <checkbox  checked="{{item.check}}" >
           </checkbox>
         </checkbox-group>
       </view>

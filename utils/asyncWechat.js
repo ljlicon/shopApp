@@ -39,3 +39,19 @@ export const openSetting = () => {
     })
   })
 }
+
+// Promise 形式的  showModal弹框提示
+export const showModal = ({content}) => {
+  return new Promise((resolve, reject) => {
+    wx.showModal({
+      title: '提示',
+      content: content,
+      success: (result) => {
+        resolve(result)
+      },
+      fail: (err) => {
+        reject(err)
+      },
+    })
+  })
+}

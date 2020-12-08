@@ -2,7 +2,8 @@ import {
   getSetting,
   chooseAddress,
   openSetting,
-  showModal
+  showModal,
+  showToast
 } from "../../utils/asyncWechat.js";
 Page({
   /**
@@ -140,9 +141,22 @@ Page({
       carts[indexgoods].num += action
       this.setCart(carts)
     }
-    
-
-
-
+  
+  },
+  //结算
+  async handleAccount(){
+    //判断购物车是不是为空，是否选择了收获地址
+    const {address,totalNum} =this.data
+    if(totalNum==0){
+      await showToast({title:"请挑选购物商品"})
+      return;
+    }
+    if(!address.userName){
+      await showToast({title:"请选择收获地址"})
+      return;
+    }
+    wx.navigateTo({
+      url: '/pages/pay/index.wxml',
+    })
   }
 })

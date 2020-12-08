@@ -1,2 +1,47 @@
-<!--pages/pay/index.wxml-->
-<text>pages/pay/index.wxml</text>
+<!-- 收货地址 -->
+<view class="user_address">
+  <button bindtap="handleGetAdress" type="default" size="default" plain wx:if="{{!address.userName}}">+添加收获地址</button>
+  <view wx:else>
+    <view class="address_name">收货人：{{address.userName}} <text>{{address.telNumber}}</text> </view>
+    <view class="address_box">{{address.provinceName}}{{address.cityName}}{{address.countyName}}{{address.detailInfo}}
+    </view>
+  </view>
+</view>
+<!-- 购物车 -->
+<view class="car_content">
+  <view class="car_title">购物车</view>
+  <view class="car_main">
+      <view class="car_item" wx:for="{{carts}}" wx:key="goods_id" >
+      <view class="car_img">
+        <navigator navigateTo="#">
+          <image mode="widthFix" src="{{item.goods_small_logo?item.goods_small_logo:'http://image2.suning.cn/uimg/b2c/newcatentries/0070078057-000000000634917020_1_800x800.jpg'}}">
+          </image>
+        </navigator>
+      </view>
+      <view class="car_info">
+        <view class="goods_name">
+          {{item.goods_name}}
+        </view>
+        <view class="goods_price_num">
+          <view class="goods_price">￥{{item.goods_price}}</view>
+          <view class="goods_num">
+            <view class="goods_num_s">X{{item.num}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+  </view>
+</view>
+
+<!-- 结算区域 -->
+<view class="account">
+  
+  <view class="account_price">
+    <view class="account_price_num">合计：<text>￥{{totalPrice}}</text></view>
+    <view class="account_price_text">包含运费</view>
+  </view>
+  <view class="account_text" bindtap="handleOrderPay">
+    <text>支付({{totalNum}})</text>
+  </view>
+</view>

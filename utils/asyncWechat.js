@@ -55,3 +55,34 @@ export const showModal = ({content}) => {
     })
   })
 }
+
+// Promise 形式的  showToast
+export const showToast = ({title}) => {
+  return new Promise((resolve, reject) => {
+    wx.showToast({
+      title: title,
+      icon: 'none',
+      success: (result) => {
+        resolve(result)
+      },
+      fail: (err) => {
+        reject(err)
+      },
+    })
+  })
+}
+
+// Promise 形式的  login
+export const login = () => {
+  return new Promise((resolve, reject) => {
+    wx.login({
+      timeout: 10000,
+      success: (result) => {
+        resolve(result)
+      },
+      fail: (err) => {
+        reject(err)
+      },
+    })
+  })
+}

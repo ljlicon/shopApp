@@ -5,6 +5,7 @@ import {
   showModal,
   showToast
 } from "../../utils/asyncWechat.js";
+import {axios} from "../../request/index.js"
 Page({
   /**
    * 页面的初始数据

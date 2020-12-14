@@ -60,6 +60,8 @@ Page({
   //支付跳转
   async handleOrderPay(){
     let token=wx.getStorageSync("token")
+    console.log(token);
+    
     //缓存没有token就需要去授权页面
     if(!token){
       wx.navigateTo({
@@ -83,7 +85,7 @@ Page({
     )
     const orderParams={order_price,consignee_addr,goods};
     //参数准备好了 发请求获取订单编号
-    const {order_number}=await axios({url:"/my/orders/create",method:"post",data:orderParams,hearder:hearder})
-
+    const {order_number}=await axios({url:"/my/orders/create",method:"post",data:orderParams,hearder})
+    
   }
 })

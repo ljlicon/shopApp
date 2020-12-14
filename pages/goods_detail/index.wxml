@@ -12,7 +12,7 @@
     <view class="detail_name">
       {{goods_data.goods_name}}</view>
     <view class="detail_collect">
-      <view class="iconfont iconshoucang"></view>
+      <view class="iconfont iconshoucang1"></view>
       收藏
     </view>
 

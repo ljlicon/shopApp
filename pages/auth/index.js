@@ -20,7 +20,7 @@ Page({
       // 这里没有权限需要开通公司给授权
       const res = await axios({url:"/users/wxlogin",data:loginData,method:"post"});
       //给了一个假的数据
-      const token=code
+      const token="Bearer eyJhbGci0iJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQi0jIzLCJpYXQi0jE1NjUzMzY3NjYsImV4cCI6MTAwMTU2NTMzNjc2NXe.FeHAP5Y-WE2dZQEkQvwiq4rqaNU6t8UZWiHbhHwZaVM"
       // 得到token后 吧token存入缓存并且跳回到上一个页面
       await showToast({title:"还没有支付功能权限获取不到token"})
       console.log(token);

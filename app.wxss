@@ -15,7 +15,7 @@ navigator {
 page{
   /* 定义主题颜色 */
   /* 使用主题颜色  color:var(--themeColor) */
-  --themeColor:#eb4450;
+  --themeColor:#c20605;
   /* 定义同意字体大小 1px=2rpx */
   font-size: 28rpx;
 }

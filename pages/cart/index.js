@@ -156,7 +156,7 @@ Page({
       return;
     }
     wx.navigateTo({
-      url: '/pages/pay/index.wxml',
+      url: '/pages/pay/index',
     })
   }
 })
